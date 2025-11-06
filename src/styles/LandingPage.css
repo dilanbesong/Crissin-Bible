@@ -1,0 +1,156 @@
+  /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      color: #222;
+      background-color: #f7f7f7;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffd700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1950&q=80')
+        no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 1rem;
+      padding-top: 5rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    .hero .cta {
+      background: #ffd700;
+      color: #222;
+      font-weight: bold;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .hero .cta:hover {
+      background: #fff;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    /* About Author Section */
+    .about {
+      background: #fff;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .about img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .about h3 {
+      font-size: 1.3rem;
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      nav ul {
+        display: none;
+      }
+    }

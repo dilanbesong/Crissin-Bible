@@ -34,6 +34,7 @@
     "howler": "^2.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^7.9.5",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
@@ -52,7 +53,7 @@
     "eslint-plugin-react-refresh": "^0.3.4",
     "happy-dom": "^9.20.3",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2",
+    "vite": "^4.5.14",
     "vitest": "^0.31.1"
   }
 }

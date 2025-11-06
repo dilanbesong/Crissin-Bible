@@ -10,6 +10,8 @@ import MyHeader from "./components/MyHeader";
 import { useState } from "react";
 import Passage from "./components/Passage";
 import { SearchModal } from "./components/SearchModal";
+import { Routes, Route } from "react-router-dom";
+import { LandingPage } from "./LandingPage";
 
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -31,7 +33,10 @@ export default function App() {
     }
   });
   return (
-    <ColorSchemeProvider
+    <Routes>
+      <Route path="/" element={<LandingPage/>}/>
+      <Route path="/bible" element={
+        <ColorSchemeProvider
       colorScheme={colorScheme}
       toggleColorScheme={toggleColorScheme}
     >
@@ -67,5 +72,9 @@ export default function App() {
         </AppShell>
       </MantineProvider>
     </ColorSchemeProvider>
+      }/>
+
+    
+    </Routes>
   );
 }
