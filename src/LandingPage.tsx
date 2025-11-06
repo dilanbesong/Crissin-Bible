@@ -27,7 +27,7 @@ export const LandingPage = () => {
   {/* <!-- About the Author Section --> */}
   <section className="about" id="about">
     <h2>About the Creator & Sponsor</h2>
-    <img src="./src/assets/prophet-crissin.jpg" alt="Author Image" />
+    <img src="https://ibb.co/35kL5x8n" alt="Author Image" />
     <h3>Prophet Guy Crissin</h3>
     <p>
       Guy Crissin, the creator and sponsor of the Bible App, is a passionate believer dedicated to spreading the message of faith and love through technology. 
