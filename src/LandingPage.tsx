@@ -19,7 +19,7 @@ export const LandingPage = () => {
   {/* <!-- Hero Section --> */}
   <section className="hero" style={{backgroundImage:` background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
         url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1950&q=80')
-        no-repeat center center/cover;`}}>
+        no-repeat center center/cover`}}>
     <h1>Welcome to the Bible App</h1>
     <p>Explore the Word of God with simplicity and peace. Read, reflect, and grow spiritually every day.</p>
     <Link to="/bible" className="cta">Open the Bible</Link>
