@@ -1,3 +1,11 @@
+# Allow all crawlers
 User-agent: *
 Allow: /
+
+# Block any private or sensitive folders (if applicable)
+# Example:
+# Disallow: /admin/
+# Disallow: /login/
+
+# Link to the sitemap
 Sitemap: https://crissin-bible.vercel.app/sitemap.xml
