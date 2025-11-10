@@ -3,7 +3,7 @@
 const CACHE_NAME = "bible-app-cache-v1";
 
 // List of routes and assets to cache
-const ASSETS_TO_CACHE = ['../index.html', '../src', '/', '/bible', ];
+const ASSETS_TO_CACHE = ['/','/bible', '../' ];
 
 // Install event - Cache assets
 self.addEventListener("install", (event) => {
@@ -11,7 +11,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log("[Service Worker] Pre-caching app routes...");
-      return cache.addAll(ASSETS_TO_CACHE);
+      return cache.addAll(ASSETS_TO_CACHE);qqqqqqqqqq
     })
   );
   self.skipWaiting();
