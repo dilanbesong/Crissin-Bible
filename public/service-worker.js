@@ -3,7 +3,7 @@
 const CACHE_NAME = "bible-app-cache-v1";
 
 // List of routes and assets to cache
-const ASSETS_TO_CACHE = [];
+const ASSETS_TO_CACHE = ['../index.html', '../src', '/', '/bible', ];
 
 // Install event - Cache assets
 self.addEventListener("install", (event) => {
