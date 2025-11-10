@@ -1,18 +1,9 @@
+
+
 const CACHE_NAME = "bible-app-cache-v1";
 
 // List of routes and assets to cache
-const ASSETS_TO_CACHE = [
-  "/",
-  "/bible",
-  "/index.html",
-  "/manifest.json",
-  "/favicon.ico",
-  "/logo192.png",
-  "./styles/LandingPage.css",
-  // You can include built JS and CSS files after build
-  "/assets/index.js",
-  "/assets/index.css",
-];
+const ASSETS_TO_CACHE = ['/', '/bible', '../index.html'];
 
 // Install event - Cache assets
 self.addEventListener("install", (event) => {
@@ -43,42 +34,38 @@ self.addEventListener("activate", (event) => {
 
 // Fetch event - Serve cached content or fallback to network
 self.addEventListener("fetch", (event) => {
-  const { request } = event;
+  if (event.request.method !== "GET") return;
 
-  // For navigation requests (SPA routing)
-  if (request.mode === "navigate") {
-    event.respondWith(
-      fetch(request)
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      return fetch(event.request)
         .then((response) => {
-          // Cache a fresh copy
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          if (
+            !response ||
+            response.status !== 200 ||
+            response.type === "opaque"
+          ) {
+            return response;
+          }
+
+          const clonedResponse = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            // Automatically cache assets (js, css, images)
+            if (
+              event.request.url.match(/\.(js|css|html|png|jpg|jpeg|svg|ico)$/)
+            ) {
+              cache.put(event.request, clonedResponse);
+            }
+          });
+
           return response;
         })
-        .catch(() => {
-          // Fallback to cached index.html for offline routing
-          return caches.match("/index.html");
-        })
-    );
-    return;
-  }
-
-  // For other files (images, JS, CSS)
-  event.respondWith(
-    caches.match(request).then((cachedResponse) => {
-      if (cachedResponse) return cachedResponse;
-
-      // Fetch from network and cache it
-      return fetch(request)
-        .then((networkResponse) => {
-          const copy = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-          return networkResponse;
-        })
-        .catch(() => {
-          // Optionally, return a fallback (like a placeholder image)
-          return caches.match("/index.html");
-        });
+        .catch(() => caches.match("/index.html"));
     })
   );
 });
+
