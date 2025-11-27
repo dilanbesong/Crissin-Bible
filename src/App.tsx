@@ -50,7 +50,7 @@ export default function App() {
     }, []);
   return (
     <Routes>
-      <Route path="/" element={ isOnline ? <LandingPage/> : <Offline/>  }/>
+      <Route path="/" element={ <LandingPage/> }/>
       <Route path="/bible" element={
         <ColorSchemeProvider
       colorScheme={colorScheme}
