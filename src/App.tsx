@@ -7,7 +7,7 @@ import {
 import { useDisclosure, useLocalStorage, useWindowEvent } from "@mantine/hooks";
 import MyNavbar from "./components/MyNavbar";
 import MyHeader from "./components/MyHeader";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Passage from "./components/Passage";
 import { SearchModal } from "./components/SearchModal";
 import { Routes, Route } from "react-router-dom";
