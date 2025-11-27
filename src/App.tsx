@@ -7,12 +7,12 @@ import {
 import { useDisclosure, useLocalStorage, useWindowEvent } from "@mantine/hooks";
 import MyNavbar from "./components/MyNavbar";
 import MyHeader from "./components/MyHeader";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Passage from "./components/Passage";
 import { SearchModal } from "./components/SearchModal";
 import { Routes, Route } from "react-router-dom";
 import { LandingPage } from "./LandingPage";
-import Offline from "./components/Offline";
+//import Offline from "./components/Offline";
 
 export default function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -33,21 +33,21 @@ export default function App() {
       modalFn.close();
     }
   });
-  const [ isOnline, setIsOnline] = useState(window.navigator.onLine)
+  // const [ isOnline, setIsOnline] = useState(window.navigator.onLine)
 
-  useEffect(() => {
-        const handleOnline = () => setIsOnline(true);
-        const handleOffline = () => setIsOnline(false);
+  // useEffect(() => {
+  //       const handleOnline = () => setIsOnline(true);
+  //       const handleOffline = () => setIsOnline(false);
 
-        window.addEventListener('online', handleOnline);
-        window.addEventListener('offline', handleOffline);
+  //       window.addEventListener('online', handleOnline);
+  //       window.addEventListener('offline', handleOffline);
 
-        // Cleanup event listeners on component unmount
-        return () => {
-            window.removeEventListener('online', handleOnline);
-            window.removeEventListener('offline', handleOffline);
-        };
-    }, []);
+  //       // Cleanup event listeners on component unmount
+  //       return () => {
+  //           window.removeEventListener('online', handleOnline);
+  //           window.removeEventListener('offline', handleOffline);
+  //       };
+  //   }, []);
   return (
     <Routes>
       <Route path="/" element={ <LandingPage/> }/>
